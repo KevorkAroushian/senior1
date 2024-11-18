@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <div class="logo">
+                <img src="/Navigator images/healthcare Logo.png" alt="Logo">
+            </div>
+        </a>        
+        <div class="nav-links">
+            <a href="/Home Page/">Home</a>
+            <a href="/About Us/index.html">About Us</a>
+            <a href="/Sign in/register.html">Sign In</a>
+            <a href="/Log in/login.html">Log In</a>
+            <a href="https://www.instagram.com/"><img src="/Navigator images/insta.jpeg" alt="Instagram"></a>
+            <a href="https://www.facebook.com/"><img src="/Navigator images/facebook.png" alt="Facebook"></a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Doctor Login</h1>
+    </header>
+
+    <section class="login-form">
+        <form id="loginForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Log In</button>
+        </form>
+    </section>
+
+    <!-- Hospital Update Form -->
+    <section id="hospitalUpdateForm" style="display: none;">
+        <h2>Update Hospital</h2>
+        <form id="updateForm">
+            <label for="hospital">New Hospital Name:</label>
+            <input type="text" id="hospital" required>
+            <button type="submit">Update Hospital</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Email: serviceg2002@gmail.com | Phone: +374-41-831-631</p>
+    </footer>
+
+    <!-- Modal for notification -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">OKAY!</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script>
+    const loginForm = document.getElementById('loginForm');
+    const hospitalUpdateForm = document.getElementById('hospitalUpdateForm');
+    const updateForm = document.getElementById('updateForm');
+    let doctorId;
+
+    const modal = document.getElementById('notificationModal');
+    const modalMessage = document.getElementById('modalMessage');
+
+    // Function to show the modal with the message
+    function showModal(message) {
+        modalMessage.textContent = message;
+        modal.style.display = 'block';
+    }
+
+    // Close the modal when the "OKAY!" button is clicked
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    loginForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const loginData = {
+            name: document.getElementById('name').value,
+            surname: document.getElementById('surname').value,
+            password: document.getElementById('password').value
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginData)
+            });
+
+            if (response.status === 200) {
+                const doctor = await response.json();
+                doctorId = doctor.DoctorID;
+                showModal('Welcome Dr. ' + doctor.Name);
+                loginForm.style.display = 'none';
+                hospitalUpdateForm.style.display = 'block';
+            } else {
+                showModal('Invalid credentials. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showModal('An error occurred during login');
+        }
+    });
+
+    updateForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const hospitalData = {
+            doctorId: doctorId,
+            newHospital: document.getElementById('hospital').value
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/update-hospital', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(hospitalData)
+            });
+
+            if (response.status === 200) {
+                showModal('Hospital updated successfully!');
+            } else {
+                showModal('Error updating hospital.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showModal('An error occurred while updating the hospital');
+        }
+    });
+    </script>
+</body>
+</html>

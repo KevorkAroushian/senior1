@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service G for Healthcare</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="/">
+            <div class="logo">
+                <img src="/Navigator images/healthcare Logo.png" alt="Logo">
+            </div>
+        </a>        
+        <div class="nav-links">
+            <a href="/Home Page/">Home</a>
+            <a href="/About Us/index.html">About Us</a>
+            <a href="/Sign in/register.html">Sign In</a>
+            <a href="/Log in/login.html">Log In</a>
+            <a href="https://www.instagram.com/"><img src="/Navigator images/insta.jpeg" alt="Instagram"></a>
+            <a href="https://www.facebook.com/"><img src="/Navigator images/facebook.png" alt="Facebook"></a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Service G For Healthcare</h1>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="search-container">
+        <input type="text" id="search-input" placeholder="Search the country that you're in..." oninput="filterCards()">
+    </section>
+
+    <!-- Image Slider -->
+    <section class="slider">
+        <div class="slides">
+            <img src="./Sliders images/doctor1.jpg" alt="Slide 1">
+            <img src="./Sliders images/doctor2.avif" alt="Slide 2">
+            <img src="./Sliders images/doctor3.avif" alt="Slide 3">
+            <img src="./Sliders images/doctor1.jpg" alt="Slide 1(dublicate)">
+        </div>
+    </section>
+
+    <!-- Country Flag Cards -->
+    <section class="flags" id="flagsSection">
+        <div class="country-card" data-country="Armenia">
+            <a href="./card flags/armenia/index.html">
+                <div class="card">
+                    <img src="./card flags/armenia/arm flag.png" alt="Armenia">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="USA">
+            <a href="./card flags/USA/index.html">
+                <div class="card">
+                    <img src="./card flags/USA/USA flag.webp" alt="USA">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="Lebanon">
+            <a href="./card flags/lebanon/index.html">
+                <div class="card">
+                    <img src="./card flags/lebanon/lebanon flag.png" alt="Lebanon">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="UAE">
+            <a href="./card flags/UAE/index.html">
+                <div class="card">
+                    <img src="./card flags/UAE/UAE flag.png" alt="UAE">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="Egypt">
+            <a href="./card flags/egypt/index.html">
+                <div class="card">
+                    <img src="./card flags/egypt/Egypt flag.png" alt="Egypt">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="Spain">
+            <a href="./card flags/spain/index.html">
+                <div class="card">
+                    <img src="./card flags/spain/spain flag.png" alt="Spain">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="France">
+            <a href="./card flags/france/index.html">
+                <div class="card">
+                    <img src="./card flags/france/france flag.png" alt="France">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="Japan">
+            <a href="./card flags/japan/index.html">
+                <div class="card">
+                    <img src="./card flags/japan/japan flag.png" alt="Japan">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="China">
+            <a href="./card flags/china/index.html">
+                <div class="card">
+                    <img src="./card flags/china/china flag.webp" alt="China">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="Syria">
+            <a href="./card flags/syria/index.html">
+                <div class="card">
+                    <img src="./card flags/syria/syrian flag.png" alt="Syria">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="Iran">
+            <a href="./card flags/iran/index.html">
+                <div class="card">
+                    <img src="./card flags/iran/iran flag.png" alt="Iran">
+                </div>
+            </a>
+        </div>
+        <div class="country-card" data-country="Russia">
+            <a href="./card flags/russia/index.html">
+                <div class="card">
+                    <img src="./card flags/russia/russia flag.png" alt="Russia">
+                </div>
+            </a>
+        </div>
+    </section>
+    
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <h1>Why To Choose Service G?</h1>
+        <div class="features">
+            <div class="feature">
+                <img src="./features icons/icon1.png" alt="Icon 1">
+                <p>10000+ Satisfied Customers</p>
+            </div>
+            <div class="feature">
+                <img src="./features icons/icon2.jpeg" alt="Icon 2">
+                <p>24/7 Support</p>
+            </div>
+            <div class="feature">
+                <img src="./features icons/icon3.png" alt="Icon 3">
+                <p>Global Reach</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2>What Our Patients Think</h2>
+        <div class="testimonial-card">
+            <span>★★★★★</span>
+            <p>"Excellent service, very satisfied!"</p>
+        </div>
+        <div class="testimonial-card">
+            <span>★★★★★</span>
+            <p>"Highly recommend Service G!"</p>
+        </div>
+        <div class="testimonial-card">
+            <span>★★★★★</span>
+            <p>"Top-notch healthcare solutions!"</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Email: serviceg2002@gmail.com | Phone: +374-41-831-631</p>
+    </footer>
+
+    <script>
+        function filterCards() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const cards = document.querySelectorAll('.country-card'); // Select the parent divs
+            let hasResults = false;
+
+            cards.forEach(card => {
+                const country = card.getAttribute('data-country').toLowerCase();
+                if (country.includes(input)) {
+                    card.style.display = 'block'; // Show the parent div
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none'; // Hide the parent div
+                }
+            });
+
+            const noResults = document.getElementById('no-results');
+            noResults.style.display = hasResults ? 'none' : 'block'; // Show or hide no-results message
+        }
+    </script>
+</body>
+</html>

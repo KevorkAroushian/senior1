@@ -1,0 +1,72 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #64ceff;
+    padding: 10px 20px;
+    position: fixed;
+    width: 98%;
+   /* z-index: 1000;*/
+}
+
+nav .logo img {
+    height: 60px;
+}
+
+nav .nav-links a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav .nav-links img {
+    height: 20px;
+    vertical-align: middle;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 50px;
+    background-color: #B3E5FC;
+}
+
+header h1 {
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 60px;
+    font-size: 36px;
+}
+
+/* About Us Section */
+.about-us {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 80px 20px; /* Add padding to avoid overlap with fixed navbar */
+}
+
+.intro, .mission-vision, .contact {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.intro img {
+    max-width: 300px; /* Ensure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #64ceff;
+    color: #333;
+}

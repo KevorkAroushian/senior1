@@ -1,0 +1,166 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#64ceff; /*64ceff*/
+    padding: 10px 20px;
+    position: fixed; /* Fixed to the top */
+    width: 98%;
+    z-index: 1000; /* Keep it above other content */
+}
+
+nav .logo img {
+    height: 60px;
+}
+
+nav .nav-links a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav .nav-links img {
+    height: 20px;
+    vertical-align: middle;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 60px;
+    background-color: #B3E5FC ;
+}
+
+header h1 {
+    margin-top: 60px;
+    font-size: 36px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Search Input */
+.search-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#search-input {
+    padding: 10px;
+    width: 300px; /* Adjust as needed */
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+
+/* Image Slider */
+.slider {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex; /* Images next to each other horizontally */
+    width: 100%; /* Adjust based on the number of images (100% * number of images) */
+    animation: slide-animation 10s infinite ease-in-out; /* Duration of the entire slide animation */
+    transition: transform 1s ease-in-out; /* Smooth sliding */
+}
+
+.slides img {
+    width: 100%; /* Each image takes up the full width of the slider container */
+    height: 100%; /* Set the desired height */
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents the images from shrinking */
+}
+
+/* Keyframes for sliding animation */
+@keyframes slide-animation {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(0); } /* Pause on the first image */
+    25% { transform: translateX(-100%); } /* Slide to second image */
+    45% { transform: translateX(-100%); } /* Pause on the second image */
+    50% { transform: translateX(-200%); } /* Slide to third image */
+    70% { transform: translateX(-200%); } /* Pause on the third image */
+    75% { transform: translateX(-300%); } /* Slide to duplicate of the first image */
+    100% { transform: translateX(0); } /* Back to the start */
+}
+
+
+
+/* Country Flag Cards */
+.flags {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.flags .card {
+    border: 1px solid #333;
+    padding: 20px;
+    margin: 10px;
+    width: 150px;
+    height: 90px;
+    text-align: center;
+}
+
+.flags img {
+    width: 100%;
+}
+
+/* Why Choose Us Section */
+.why-choose {
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.features .feature {
+    text-align: center;
+}
+
+.features .feature img {
+    height: 50px;
+}
+
+/* Testimonials */
+.testimonials {
+    text-align: center;
+    padding: 50px;
+    background-color: #B3E5FC;
+}
+
+.testimonial-card {
+    border: 1px solid gray;
+    padding: 20px;
+    margin: 10px;
+    display: inline-block;
+}
+.testimonial-card span {
+    color: gold;
+    font-size: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #64ceff ;
+    color: #333;
+}

@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: fixed;
+    width: 98%;
+   /* z-index: 1000;*/
+}
+
+nav .logo img {
+    height: 60px;
+}
+
+nav .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav .nav-links img {
+    height: 20px;
+    vertical-align: middle;
+}
+
+
+/* Header styles */
+header {
+    background: #0078a1;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-top: 80px;
+    font-size: 2.5rem;
+}
+
+/* Main section styles */
+#doctor-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Doctor card styles */
+.doctor-card {
+    background: #fff;
+    border: 1px solid #1c1b1b;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px; /* Card width */
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.doctor-card:hover {
+    transform: scale(1.05);
+}
+
+.doctor-profile-pic {
+    width: 100px; /* Profile picture size */
+    height: 100px; /* Profile picture size */
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <div class="logo">
+                <img src="/Navigator images/healthcare Logo.png" alt="Logo">
+            </div>
+        </a>        
+        <div class="nav-links">
+            <a href="/Home Page/">Home</a>
+            <a href="/About Us/index.html">About Us</a>
+            <a href="/Sign in/register.html">Sign In</a>
+            <a href="/Log in/login.html">Log In</a>
+            <a href="https://www.instagram.com/"><img src="/Navigator images/insta.jpeg" alt="Instagram"></a>
+            <a href="https://www.facebook.com/"><img src="/Navigator images/facebook.png" alt="Facebook"></a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Doctor Registration</h1>
+    </header>
+
+    <section class="registration-form">
+        <form id="doctorForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required minlength="6" placeholder="Enter a strong password">
+
+            <label for="specialty">Specialty:</label>
+            <input type="text" id="specialty" name="specialty" required>
+
+            <label for="hospital">Hospital:</label>
+            <input type="text" id="hospital" name="hospital" required>
+
+            <label for="country">Country:</label>
+            <select id="country" name="country" required>
+                <option value="" disabled selected>Select your country</option>
+                <option value="Armenia">Armenia</option>
+                <option value="USA">USA</option>
+                <option value="Lebanon">Lebanon</option>
+                <option value="UAE">UAE</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Spain">Spain</option>
+                <option value="France">France</option>
+                <option value="Japan">Japan</option>
+                <option value="China">China</option>
+                <option value="Syria">Syria</option>
+                <option value="Iran">Iran</option>
+                <option value="Russia">Russia</option>
+            </select>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+
+            <label for="profilePic">Profile Picture :</label> 
+            <input type="file" id="profilePic" name="profilePic" accept="image/*" required>
+
+            <button type="submit">Register Doctor</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Email: serviceg2002@gmail.com | Phone: +374-41-831-631</p>
+    </footer>
+
+    <!-- Modal for notification -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">OKAY!</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script>
+    const form = document.getElementById('doctorForm');
+    const modal = document.getElementById('notificationModal');
+    const modalMessage = document.getElementById('modalMessage');
+
+    // Function to show the modal with the message
+    function showModal(message) {
+        modalMessage.textContent = message;
+        modal.style.display = 'block';
+    }
+
+    // Close the modal when the "OKAY!" button is clicked
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const doctorData = {
+            name: document.getElementById('name').value,
+            surname: document.getElementById('surname').value,
+            specialty: document.getElementById('specialty').value,
+            hospital: document.getElementById('hospital').value,
+            country: document.getElementById('country').value,
+            profilePic: document.getElementById('profilePic').value,
+            password: document.getElementById('password').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value
+        };
+
+        // Send data to backend
+        try {
+            const response = await fetch('http://localhost:3000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(doctorData)
+            });
+
+            const result = await response.text();
+            if (response.status === 201) {
+                showModal(result);
+            } else {
+                showModal('Registering doctor: ' + result);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showModal('An error occurred while registering the doctor');
+        }
+    });
+    </script>
+</body>
+</html>
